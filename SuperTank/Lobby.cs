@@ -81,108 +81,116 @@ namespace SuperTank
 
         private void InitLobby()
         {
-            //Lỗi 
-            if (SocketClient.localPlayer.Name == SocketClient.joinedLobby.Host.Name)
+            try
             {
-                btn_Start.Enabled = true;
-                btn_Start.Visible = true;
-            }
-            else
-            {
-                btn_Start.Enabled = false;
-                btn_Start.Visible = false;
-            }
-
-            string[] playersName = new string[4];
-            lb_Total.Text = "SỐ LƯỢNG: " + SocketClient.joinedLobby.PlayersName.Count.ToString();
-            lb_roomID.Text = "MÃ PHÒNG: " + SocketClient.joinedLobby.RoomId;
-            int countPlayer = SocketClient.joinedLobby.PlayersName.Count;
-
-            for (int i = 0; i < countPlayer; i++)
-            {
-                switch (i)
+                //Lỗi 
+                if (SocketClient.localPlayer.Name == SocketClient.joinedLobby.Host.Name)
                 {
-                    case 0:
-                        namePlayer1.Text = SocketClient.joinedLobby.PlayersName[i];
-                        //ptb_player1.Image = Properties.Resources.ares;
-                        lbReady1.Visible = true;
-                        if (SocketClient.CheckIsReady(namePlayer1.Text))
-                        {
-                            lbReady1.Text = "Sẵn sàng";
-                            lbReady1.ForeColor = Color.Lime;
-                        }
-                        break;
+                    btn_Start.Enabled = true;
+                    btn_Start.Visible = true;
+                }
+                else
+                {
+                    btn_Start.Enabled = false;
+                    btn_Start.Visible = false;
+                }
 
-                    case 1:
-                        namePlayer2.Text = SocketClient.joinedLobby.PlayersName[i];
-                       // ptb_player2.Image = Properties.Resources.knight;
-                        lbReady2.Visible = true;
-                        if (SocketClient.CheckIsReady(namePlayer2.Text))
-                        {
-                            lbReady2.Text = "Sẵn sàng";
-                            lbReady2.ForeColor = Color.Lime;
-                        }
-                        break;
+                string[] playersName = new string[4];
+                lb_Total.Text = "SỐ LƯỢNG: " + SocketClient.joinedLobby.PlayersName.Count.ToString();
+                lb_roomID.Text = "MÃ PHÒNG: " + SocketClient.joinedLobby.RoomId;
+                int countPlayer = SocketClient.joinedLobby.PlayersName.Count;
 
-                    case 2:
-                        namePlayer3.Text = SocketClient.joinedLobby.PlayersName[i];
-                        //ptb_player3.Image = Properties.Resources.serial_killer;
-                        lbReady3.Visible = true;
-                        if (SocketClient.CheckIsReady(namePlayer3.Text))
-                        {
-                            lbReady3.Text = "Sẵn sàng";
-                            lbReady3.ForeColor = Color.Lime;
-                        }
-                        break;
+                for (int i = 0; i < countPlayer; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            namePlayer1.Text = SocketClient.joinedLobby.PlayersName[i];
+                            //ptb_player1.Image = Properties.Resources.ares;
+                            lbReady1.Visible = true;
+                            if (SocketClient.CheckIsReady(namePlayer1.Text))
+                            {
+                                lbReady1.Text = "Sẵn sàng";
+                                lbReady1.ForeColor = Color.Lime;
+                            }
+                            break;
 
-                    case 3:
-                        namePlayer4.Text = SocketClient.joinedLobby.PlayersName[i];
-                        //ptb_player4.Image = Properties.Resources.player1;
-                        lbReady4.Visible = true;
-                        if (SocketClient.CheckIsReady(namePlayer4.Text))
-                        {
-                            lbReady4.Text = "Sẵn sàng";
-                            lbReady4.ForeColor = Color.Lime;
-                        }
-                        break;
+                        case 1:
+                            namePlayer2.Text = SocketClient.joinedLobby.PlayersName[i];
+                            // ptb_player2.Image = Properties.Resources.knight;
+                            lbReady2.Visible = true;
+                            if (SocketClient.CheckIsReady(namePlayer2.Text))
+                            {
+                                lbReady2.Text = "Sẵn sàng";
+                                lbReady2.ForeColor = Color.Lime;
+                            }
+                            break;
+
+                        case 2:
+                            namePlayer3.Text = SocketClient.joinedLobby.PlayersName[i];
+                            //ptb_player3.Image = Properties.Resources.serial_killer;
+                            lbReady3.Visible = true;
+                            if (SocketClient.CheckIsReady(namePlayer3.Text))
+                            {
+                                lbReady3.Text = "Sẵn sàng";
+                                lbReady3.ForeColor = Color.Lime;
+                            }
+                            break;
+
+                        case 3:
+                            namePlayer4.Text = SocketClient.joinedLobby.PlayersName[i];
+                            //ptb_player4.Image = Properties.Resources.player1;
+                            lbReady4.Visible = true;
+                            if (SocketClient.CheckIsReady(namePlayer4.Text))
+                            {
+                                lbReady4.Text = "Sẵn sàng";
+                                lbReady4.ForeColor = Color.Lime;
+                            }
+                            break;
+                    }
+                }
+                for (int i = countPlayer; i < 4; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            namePlayer1.Text = "Player1";
+                            //ptb_player1.Image = Properties.Resources.anonymous;
+                            lbReady1.Visible = false;
+                            lbReady1.Text = "Chưa sẵn sàng";
+                            lbReady1.ForeColor = Color.Red;
+                            break;
+
+                        case 1:
+                            namePlayer2.Text = "Player2";
+                            //ptb_player2.Image = Properties.Resources.anonymous;
+                            lbReady2.Visible = false;
+                            lbReady2.Text = "Chưa sẵn sàng";
+                            lbReady2.ForeColor = Color.Red;
+                            break;
+
+                        case 2:
+                            namePlayer3.Text = "Player3";
+                            // ptb_player3.Image = Properties.Resources.anonymous;
+                            lbReady3.Visible = false;
+                            lbReady3.Text = "Chưa sẵn sàng";
+                            lbReady3.ForeColor = Color.Red;
+                            break;
+
+                        case 3:
+                            namePlayer4.Text = "Player4";
+                            // ptb_player4.Image = Properties.Resources.anonymous;
+                            lbReady4.Visible = false;
+                            lbReady4.Text = "Chưa sẵn sàng";
+                            lbReady4.ForeColor = Color.Red;
+                            break;
+                    }
                 }
             }
-            for (int i = countPlayer; i < 4; i++)
+
+            catch (Exception ex)
             {
-                switch (i)
-                {
-                    case 0:
-                        namePlayer1.Text = "Player1";
-                        //ptb_player1.Image = Properties.Resources.anonymous;
-                        lbReady1.Visible = false;
-                        lbReady1.Text = "Chưa sẵn sàng";
-                        lbReady1.ForeColor = Color.Red;
-                        break;
-
-                    case 1:
-                        namePlayer2.Text = "Player2";
-                        //ptb_player2.Image = Properties.Resources.anonymous;
-                        lbReady2.Visible = false;
-                        lbReady2.Text = "Chưa sẵn sàng";
-                        lbReady2.ForeColor = Color.Red;
-                        break;
-
-                    case 2:
-                        namePlayer3.Text = "Player3";
-                       // ptb_player3.Image = Properties.Resources.anonymous;
-                        lbReady3.Visible = false;
-                        lbReady3.Text = "Chưa sẵn sàng";
-                        lbReady3.ForeColor = Color.Red;
-                        break;
-
-                    case 3:
-                        namePlayer4.Text = "Player4";
-                       // ptb_player4.Image = Properties.Resources.anonymous;
-                        lbReady4.Visible = false;
-                        lbReady4.Text = "Chưa sẵn sàng";
-                        lbReady4.ForeColor = Color.Red;
-                        break;
-                }
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -198,7 +206,7 @@ namespace SuperTank
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            if (SocketClient.CheckIsReadyForAll())
+            if (SocketClient.CheckIsReadyForAll() )
             {
                 SocketClient.SendData("START");
             }

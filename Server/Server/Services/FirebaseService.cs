@@ -1,4 +1,4 @@
-﻿using FireSharp;    
+﻿using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -7,13 +7,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FireSharp.Response;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+
 
 namespace Server.Services
 {
     public class FirebaseService : IFirebaseService
     {
         private readonly IFirebaseClient _client;
-
+        private readonly string _key = "DaylaKeyRatDaiCuaQuangtien160505";
         public FirebaseService(IConfiguration configuration)
         {
             var config = new FirebaseConfig
@@ -23,22 +27,60 @@ namespace Server.Services
             };
             _client = new FireSharp.FirebaseClient(config);
         }
+        private string EncryptPassword(string password)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(_key.PadRight(32));  // Sử dụng key 32 bytes
+                aes.IV = new byte[16];  // IV cố định cho đơn giản
 
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(password);
+                    }
+
+                    return Convert.ToBase64String(msEncrypt.ToArray());
+                }
+            }
+        }
+        private string DecryptPassword(string encryptedPassword)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(_key.PadRight(32));
+                aes.IV = new byte[16];
+
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(encryptedPassword)))
+                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                {
+                    return srDecrypt.ReadToEnd();
+                }
+            }
+        }
         public async Task<RegisterResult> RegisterUser(Register user)
         {
-            //nhận tín hiệu từ client bằng .getAsync và kiểm tra xem tên tài khoản đã tồn tại chưa
             var response = await _client.GetAsync("Users/" + user.Username);
             if (response.Body != "null")
             {
                 return new RegisterResult { Success = false, Message = "Tên tài khoản đã tồn tại. Vui lòng đặt tên khác!" };
             }
-
             var emailResponse = await _client.GetAsync("Users");
             var users = emailResponse.ResultAs<Dictionary<string, Register>>();
             if (users != null && users.Values.Any(u => u.Email == user.Email))
             {
                 return new RegisterResult { Success = false, Message = "Email này đã được đăng ký!" };
             }
+
+            // Mã hóa mật khẩu trước khi lưu
+            user.Password = EncryptPassword(user.Password);
 
             var setResponse = await _client.SetAsync("Users/" + user.Username, user);
             if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
@@ -51,37 +93,64 @@ namespace Server.Services
             }
         }
 
+
         public async Task<LoginResult> LoginUser(string username, string password)
         {
-            var response = await _client.GetAsync("Users/" + username);
-            if (response.Body == "null")
+            try
             {
-                return new LoginResult { Success = false, Message = "Tài khoản không tồn tại" };
-            }
+                var response = await _client.GetAsync("Users/" + username);
+                if (response.Body == "null")
+                {
+                    return new LoginResult { Success = false, Message = "Tài khoản không tồn tại" };
+                }
 
-            var user = response.ResultAs<Register>();
-            if (user.Password == password)
-            {
-                return new LoginResult { Success = true, Message = "Đăng nhập thành công" };
+                var user = response.ResultAs<Register>();
+
+                // Mã hóa password người dùng nhập vào
+                string encryptedInputPassword = EncryptPassword(password);
+
+                // So sánh trực tiếp với password đã mã hóa trong database
+                if (user.Password == encryptedInputPassword)
+                {
+                    return new LoginResult { Success = true, Message = "Đăng nhập thành công" };
+                }
+                else
+                {
+                    // Để debug, in ra các giá trị (chỉ dùng trong quá trình phát triển)
+                    Console.WriteLine($"Stored password: {user.Password}");
+                    Console.WriteLine($"Input encrypted: {encryptedInputPassword}");
+                    return new LoginResult { Success = false, Message = "Sai mật khẩu" };
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return new LoginResult { Success = false, Message = "Sai mật khẩu" };
+                Console.WriteLine($"Login error: {ex.Message}");
+                return new LoginResult { Success = false, Message = "Lỗi đăng nhập: " + ex.Message };
             }
         }
 
         public async Task<UpdatePasswordResult> UpdatePasswordInFirebase(string username, string newPassword)
         {
-            // Check if user exists
             var response = await _client.GetAsync("Users/" + username);
             if (response.Body == "null")
             {
                 return new UpdatePasswordResult { Success = false, Message = "Tài khoản không tồn tại." };
             }
 
-            // Update the password
+            var user = response.ResultAs<Register>();
+            string currentDecryptedPassword = DecryptPassword(user.Password);
+
+            // So sánh mật khẩu mới với mật khẩu cũ đã giải mã
+            if (currentDecryptedPassword == newPassword)
+            {
+                return new UpdatePasswordResult { Success = false, Message = "Mật khẩu mới giống với mật khẩu cũ." };
+            }
+
+            // Mã hóa mật khẩu mới
+            string encryptedNewPassword = EncryptPassword(newPassword);
+
             var path = $"Users/{username}/Password";
-            var setResponse = await _client.SetAsync(path, newPassword);
+            var setResponse = await _client.SetAsync(path, encryptedNewPassword);
             if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return new UpdatePasswordResult { Success = true, Message = "Mật khẩu đã được cập nhật thành công." };
@@ -135,7 +204,6 @@ namespace Server.Services
             {
                 return new VerificationCodeResult { Success = false, Message = "Không tìm thấy mã xác nhận.", Username = username };
             }
-
             return new VerificationCodeResult { Success = true, VerificationCode = verificationCode, Username = username };
         }
     }

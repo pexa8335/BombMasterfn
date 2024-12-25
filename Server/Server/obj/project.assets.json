@@ -1716,23 +1716,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kwebl\\.nuget\\packages\\": {},
+    "C:\\Users\\Pexa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\Server\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\Server\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\Server\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\kwebl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kwebl\\Source\\Repos\\BombMasterfn\\Server\\Server\\obj\\",
+      "projectPath": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\Server\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\Pexa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\Server\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kwebl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -48,6 +48,11 @@ namespace SuperTank
         private static ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
         private static AutoResetEvent messageReceivedEvent = new AutoResetEvent(false);
 
+
+        public static void SetLocalPlayer(string playerName)
+        {
+            localPlayer = new PlayerTank { Name = playerName }; // Assuming PlayerTank has a Name property
+        }
         // Kết nối đến server
         public static void ConnectToServer(System.Net.IPEndPoint serverEP)
         {
@@ -415,6 +420,117 @@ namespace SuperTank
         }
 
         #region lớp đối tượng xử lí chung
+        public class PlayerTank : Tank
+        {
+            public string Id { get; set; }
+            public PointF Position { get; set; }
+            public bool IsReady { get; set; } = false;
+            public string Name { get; set; }
+          
+
+
+            private bool isShield;
+            private Bitmap bmpShield;
+
+
+            //public PlayerTank()
+            //{
+            //    this.Name = "Player";
+            //    this.moveSpeed = 10;
+            //    this.tankBulletSpeed = 20;
+            //    this.energy = 100;
+            //    this.SetLocation();
+            //    this.DirectionTank = Direction.eUp;
+            //    this.SkinTank = Skin.eYellow;
+            //    //bmpEffect = new Bitmap(Common.path + @"\Images\effect1.png");
+            //    //bmpShield = new Bitmap(Common.path + @"\Images\shield.png");
+            //}
+
+            // cập nhật vị trí xe tăng player
+            public void SetLocation()
+            {
+                int i = 17, j = 36;
+                this.RectX = i * Common.STEP;
+                this.RectY = j * Common.STEP;
+            }
+            // hiển thị xe tăng player
+            #region hiển thị
+            public override void Show(Bitmap background)
+            {
+                // nếu xe tăng đang bật chế độ hoạt động sẽ hiển thị xe tăng, 
+                // ngược lại hiện thị hiệu ứng xuất hiện
+                if (IsActivate)
+                {
+                    switch (directionTank)
+                    {
+                        case Direction.eUp:
+                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
+                                   (int)skinTank * Common.tankSize, frx_tank * Common.tankSize, this.RectWidth, this.RectHeight);
+                            break;
+                        case Direction.eDown:
+                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
+                                   (MAX_NUMBER_SPRITE_TANK - (int)skinTank) * Common.tankSize, frx_tank * Common.tankSize, this.RectWidth, this.RectHeight);
+                            break;
+                        case Direction.eLeft:
+                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
+                                     frx_tank * Common.tankSize, (MAX_NUMBER_SPRITE_TANK - (int)skinTank) * Common.tankSize, this.RectWidth, this.RectHeight);
+                            break;
+                        case Direction.eRight:
+                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
+                                frx_tank * Common.tankSize, (int)skinTank * Common.tankSize, this.RectWidth, this.RectHeight);
+                            break;
+                    }
+                    // nếu xe tăng player đang ở chế độ được bảo vệ -> show vòng tròn bảo vệ
+                    if (this.isShield)
+                    {
+                        Common.PaintObject(background, this.bmpShield, rect.X, rect.Y, 0, 0, 40, 40);
+                    }
+                    //nếu xe tăng được di chuyển bánh xe sẽ xoay
+                    if (this.isMove)
+                    {
+                        frx_tank--;
+                        if (frx_tank == -1)
+                            frx_tank = MAX_NUMBER_SPRITE_TANK;
+                    }
+                }
+                else
+                {
+                    // hiển thị hiệu ứng xuất hiện
+                    Common.PaintObject(background, this.bmpEffect, this.RectX, this.RectY,
+                           frx_effect * this.RectWidth, fry_effect * this.RectHeight, this.RectWidth, this.RectHeight);
+                    frx_effect++;
+                    if (frx_effect == MAX_NUMBER_SPRITE_EFFECT)
+                    {
+                        frx_effect = 0;
+                        fry_effect++;
+                        if (fry_effect == MAX_NUMBER_SPRITE_EFFECT)
+                        {
+                            fry_effect = 0;
+                            // hiệu ứng kết thúc, bật lại hoạt động của xe
+                            IsActivate = true;
+                        }
+                    }
+                }
+            }
+            #endregion 
+            #region properties
+            public bool IsShield
+            {
+                get { return isShield; }
+                set { isShield = value; }
+            }
+            #endregion 
+        }
+        public class Lobby
+        {
+            public bool IsGameOver { get; set; } = false;
+            public bool IsStart { get; set; } = false;
+            public string RoomId { get; set; }
+            public PlayerTank Host { get; set; }
+            public string HostName { get; set; }
+            public List<PlayerTank> Players { get; set; } = new List<PlayerTank>();
+            public List<string> PlayersName { get; set; } = new List<string>();
+        }
         public class BaseObject
         {
             protected Rectangle rect;
@@ -1209,117 +1325,9 @@ namespace SuperTank
             }
             #endregion property
         }
-        public class PlayerTank : Tank
-        {
-            public string Id { get; set; }
-            public PointF Position { get; set; }
-            public bool IsReady { get; set; } = false;
-            public string Name { get; set; }
-          
+        
 
-            private bool isShield;
-            private Bitmap bmpShield;
-
-
-            //public PlayerTank()
-            //{
-            //    this.Name = "Player";
-            //    this.moveSpeed = 10;
-            //    this.tankBulletSpeed = 20;
-            //    this.energy = 100;
-            //    this.SetLocation();
-            //    this.DirectionTank = Direction.eUp;
-            //    this.SkinTank = Skin.eYellow;
-            //    //bmpEffect = new Bitmap(Common.path + @"\Images\effect1.png");
-            //    //bmpShield = new Bitmap(Common.path + @"\Images\shield.png");
-            //}
-
-            // cập nhật vị trí xe tăng player
-            public void SetLocation()
-            {
-                int i = 17, j = 36;
-                this.RectX = i * Common.STEP;
-                this.RectY = j * Common.STEP;
-            }
-            // hiển thị xe tăng player
-            #region hiển thị
-            public override void Show(Bitmap background)
-            {
-                // nếu xe tăng đang bật chế độ hoạt động sẽ hiển thị xe tăng, 
-                // ngược lại hiện thị hiệu ứng xuất hiện
-                if (IsActivate)
-                {
-                    switch (directionTank)
-                    {
-                        case Direction.eUp:
-                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
-                                   (int)skinTank * Common.tankSize, frx_tank * Common.tankSize, this.RectWidth, this.RectHeight);
-                            break;
-                        case Direction.eDown:
-                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
-                                   (MAX_NUMBER_SPRITE_TANK - (int)skinTank) * Common.tankSize, frx_tank * Common.tankSize, this.RectWidth, this.RectHeight);
-                            break;
-                        case Direction.eLeft:
-                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
-                                     frx_tank * Common.tankSize, (MAX_NUMBER_SPRITE_TANK - (int)skinTank) * Common.tankSize, this.RectWidth, this.RectHeight);
-                            break;
-                        case Direction.eRight:
-                            Common.PaintObject(background, this.bmpObject, rect.X, rect.Y,
-                                frx_tank * Common.tankSize, (int)skinTank * Common.tankSize, this.RectWidth, this.RectHeight);
-                            break;
-                    }
-                    // nếu xe tăng player đang ở chế độ được bảo vệ -> show vòng tròn bảo vệ
-                    if (this.isShield)
-                    {
-                        Common.PaintObject(background, this.bmpShield, rect.X, rect.Y, 0, 0, 40, 40);
-                    }
-                    //nếu xe tăng được di chuyển bánh xe sẽ xoay
-                    if (this.isMove)
-                    {
-                        frx_tank--;
-                        if (frx_tank == -1)
-                            frx_tank = MAX_NUMBER_SPRITE_TANK;
-                    }
-                }
-                else
-                {
-                    // hiển thị hiệu ứng xuất hiện
-                    Common.PaintObject(background, this.bmpEffect, this.RectX, this.RectY,
-                           frx_effect * this.RectWidth, fry_effect * this.RectHeight, this.RectWidth, this.RectHeight);
-                    frx_effect++;
-                    if (frx_effect == MAX_NUMBER_SPRITE_EFFECT)
-                    {
-                        frx_effect = 0;
-                        fry_effect++;
-                        if (fry_effect == MAX_NUMBER_SPRITE_EFFECT)
-                        {
-                            fry_effect = 0;
-                            // hiệu ứng kết thúc, bật lại hoạt động của xe
-                            IsActivate = true;
-                        }
-                    }
-                }
-            }
-            #endregion 
-            #region properties
-            public bool IsShield
-            {
-                get { return isShield; }
-                set { isShield = value; }
-            }
-            #endregion 
-        }
-
-        public class Lobby
-        {
-            public bool IsGameOver { get; set; } = false;
-            public bool IsStart { get; set; } = false;
-            public string RoomId { get; set; }
-            public PlayerTank Host { get; set; }
-            public string HostName { get; set; }
-            public List<PlayerTank> Players { get; set; } = new List<PlayerTank>();
-            public List<string> PlayersName { get; set; } = new List<string>();
-        }
+        
         #endregion
     }
 }
