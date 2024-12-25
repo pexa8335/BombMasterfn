@@ -1,4 +1,4 @@
-﻿using SuperTank;
+﻿using SuperTank.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +17,6 @@ namespace SuperTank
     public partial class Lobby : Form
     {
         private CancellationTokenSource _cts;
-        public string HostName { get; set; }
-        public bool IsHost { get; set; } = false;
-        public string RoomId { get; }
 
         public Lobby()
         {
@@ -29,20 +26,6 @@ namespace SuperTank
             namePlayer3.AutoEllipsis = true;
             namePlayer4.AutoEllipsis = true;
             this.Load += Lobby_Load;
-
-            // Display HostName and set IsHost
-            if (!string.IsNullOrEmpty(HostName))
-            {
-                if (SocketClient.localPlayer != null && HostName == SocketClient.localPlayer.Name)
-                {
-                    IsHost = true;
-                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + " (Bạn là chủ phòng)";
-                }
-                else
-                {
-                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + $" (Chủ phòng: {HostName})";
-                }
-            }
         }
 
         private async void Lobby_Load(object sender, EventArgs e)
@@ -67,9 +50,7 @@ namespace SuperTank
                     {
                         foreach (var lobbyPlayer in SocketClient.joinedLobby.Players)
                         {
-                            //phần này là phần tạo constructor khởi tạo cho playertank giá trị ban đầu, đéo hiểu, k làm dc
-
-                            SocketClient.players.Add(new SocketClient.PlayerTank
+                            SocketClient.players.Add(new SuperTank.Objects.PlayerTank
                             {
                                 Name = lobbyPlayer.Name,
                                 Position = new PointF(0, 0) // Set initial spawn point or position

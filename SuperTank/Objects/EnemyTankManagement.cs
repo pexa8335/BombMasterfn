@@ -146,7 +146,7 @@ namespace SuperTank.Objects
         }
 
         // di chuyển toàn bộ danh sách xe tăng địch 
-        public void MoveAllEnemyTank(List<Wall> walls, PlayerTank playerTank)
+       /* public void MoveAllEnemyTank(List<Wall> walls, PlayerTank playerTank)
         {
             bool isMove_local = false;
             foreach (EnemyTank enemyTank in EnemyTanks)
@@ -164,7 +164,7 @@ namespace SuperTank.Objects
                 if (isMove_local)
                     enemyTank.Move();
             }
-        }
+        }*/
 
         // hiển thị toàn bộ danh sách xe tăng địch
         public void ShowAllEnemyTank(Bitmap background)

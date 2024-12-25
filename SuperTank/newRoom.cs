@@ -44,12 +44,6 @@ namespace SuperTank
             lobby.Show();
         }
 
-
-
-        
-
-
-
         private async void btn_joinRoom_Click(object sender, EventArgs e)
         {
             if (!checkRoomID(roomID.Text)) return;

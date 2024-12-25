@@ -178,7 +178,7 @@ namespace SuperTank
             }
 
             //di chuyển toàn bộ xe tăng địch
-            enemyTankManager.MoveAllEnemyTank(wallManager.Walls, playerTank);
+            /*enemyTankManager.MoveAllEnemyTank(wallManager.Walls, playerTank);*/
             //hiển thị toàn bộ xe tăng địch
             //enemyTankManager.ShowAllEnemyTank(this.background);
 
@@ -407,8 +407,7 @@ namespace SuperTank
             #endregion đạn địch trúng xe tăng, đạn của xe tăng player
 
             // xe tăng player di chuyển
-            if (!playerTank.IsWallCollision(wallManager.Walls, playerTank.DirectionTank) &&
-                !playerTank.IsEnemyTankCollisions(enemyTankManager.EnemyTanks))
+            if (!playerTank.IsWallCollision(wallManager.Walls, playerTank.DirectionTank))
                 playerTank.Move();
 
             // hiển thị xe tăng của player
