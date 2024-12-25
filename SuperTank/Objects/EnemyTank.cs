@@ -39,7 +39,7 @@ namespace SuperTank
 
         #region bộ não xử lí cách di chuyển của xe tăng địch
         // xử lí di chuyển của xe tăng type = normal
-        public bool HandleMoveNormal(List<Wall> walls, PlayerTank playerTank, List<EnemyTank> alliedTanks)
+        public bool HandleMoveNormal(List<SuperTank.Objects.Wall> walls, PlayerTank playerTank, List<EnemyTank> alliedTanks)
         {
             // kiểm tra xe tăng địch có va chạm tường
             bool isWallCollision;
@@ -90,7 +90,7 @@ namespace SuperTank
 
         // xử lí di chuyển của xe tăng type = medium
         bool isPriority = false;
-        public bool HandleMoveMedium(List<Wall> walls, PlayerTank playerTank, List<EnemyTank> alliedTanks)
+        public bool HandleMoveMedium(List<SuperTank.Objects.Wall> walls, PlayerTank playerTank, List<EnemyTank> alliedTanks)
         {
             // kiểm tra xe tăng địch có va chạm tường
             bool isWallCollision;
