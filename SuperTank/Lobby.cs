@@ -1,5 +1,4 @@
 ﻿using SuperTank;
-using SuperTank.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,11 +52,11 @@ namespace SuperTank
                         {
                             //phần này là phần tạo constructor khởi tạo cho playertank giá trị ban đầu, đéo hiểu, k làm dc
 
-                            /*SocketClient.players.Add(new PlayerTank
+                            SocketClient.players.Add(new SocketClient.PlayerTank
                             {
                                 Name = lobbyPlayer.Name,
                                 Position = new PointF(0, 0) // Set initial spawn point or position
-                            });*/
+                            });
                         }
                         Debug.WriteLine("All players added to SocketClient.players for MainGame start.");
                     }
@@ -82,6 +81,7 @@ namespace SuperTank
 
         private void InitLobby()
         {
+            //Lỗi 
             if (SocketClient.localPlayer.Name == SocketClient.joinedLobby.Host.Name)
             {
                 btn_Start.Enabled = true;
@@ -189,6 +189,23 @@ namespace SuperTank
         private void ptb_player1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Ready_Click(object sender, EventArgs e)
+        {
+            SocketClient.SendData("READY");
+        }
+
+        private void btn_Start_Click(object sender, EventArgs e)
+        {
+            if (SocketClient.CheckIsReadyForAll())
+            {
+                SocketClient.SendData("START");
+            }
+            else
+            {
+                MessageBox.Show("Các người chơi khác vẫn chưa sẵn sàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

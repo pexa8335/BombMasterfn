@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SuperTank;
 
 namespace SuperTank
 {
@@ -15,6 +17,9 @@ namespace SuperTank
         public newRoom()
         {
             InitializeComponent();
+            IPAddress ipServer = IPAddress.Loopback;
+            IPEndPoint serverEP = new IPEndPoint(ipServer, 8989); // Sử dụng port 8989 như server đã chỉ định
+            SocketClient.ConnectToServer(serverEP); // Gọi phương thức static mà không cần tạo đối tượng
         }
 
         Lobby lobby;
@@ -39,40 +44,11 @@ namespace SuperTank
             lobby.Show();
         }
 
-        private async void createButton_Click(object sender, EventArgs e)
-        {
-            SocketClient.SendData($"CREATE_ROOM;{roomID.Text}");
 
-            await WaitFunction();
 
-            if (SocketClient.isCreateRoom)
-            {
-                TurnForm();
-            }
-            else
-            {
-                MessageBox.Show($"Room {roomID.Text} has been created!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
-        private void listPhong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            roomID.Text = cbb_listRoom.SelectedItem.ToString();
-        }
 
-        private async void showRoomList_Click(object sender, EventArgs e)
-        {
-            SocketClient.SendData("SEND_ROOM_LIST");
-
-            await WaitFunction();
-
-            cbb_listRoom.Items.Clear();
-            int count = SocketClient.lobbies.Count;
-            for (int i = 0; i < count; i++)
-            {
-                cbb_listRoom.Items.Add(SocketClient.lobbies[i].RoomId);
-            }
-        }
 
         private async void btn_joinRoom_Click(object sender, EventArgs e)
         {
@@ -108,6 +84,39 @@ namespace SuperTank
 
         }
 
-       
+        private async void btn_createRoom_Click(object sender, EventArgs e)
+        {
+            SocketClient.SendData($"CREATE_ROOM;{roomID.Text}");
+
+            await WaitFunction();
+
+            if (SocketClient.isCreateRoom)
+            {
+                TurnForm();
+            }
+            else
+            {
+                MessageBox.Show($"Room {roomID.Text} has been created!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async  void cbb_listRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            roomID.Text = cbb_listRoom.SelectedItem.ToString();
+        }
+
+        private async void btn_findRoom_Click(object sender, EventArgs e)
+        {
+            SocketClient.SendData("SEND_ROOM_LIST");
+
+            await WaitFunction();
+
+            cbb_listRoom.Items.Clear();
+            int count = SocketClient.lobbies.Count;
+            for (int i = 0; i < count; i++)
+            {
+                cbb_listRoom.Items.Add(SocketClient.lobbies[i].RoomId);
+            }
+        }
     }
 }

@@ -1,16 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Pexa\\Pexa\\SuperTank\\",
+  "WorkspaceRootPath": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD10396F-BAE5-492A-B393-22A9726629D5}|..\\ServerSocket\\ServerSocket.csproj|d:\\pexa\\pexa\\serversocket\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD10396F-BAE5-492A-B393-22A9726629D5}|..\\ServerSocket\\ServerSocket.csproj|c:\\users\\kwebl\\source\\repos\\bombmasterfn\\serversocket\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank.csproj|d:\\pexa\\pexa\\supertank\\socketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank.csproj|c:\\users\\kwebl\\source\\repos\\bombmasterfn\\supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank.csproj|solutionrelative:lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank.csproj|C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\socketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank.csproj|solutionrelative:socketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD10396F-BAE5-492A-B393-22A9726629D5}|..\\ServerSocket\\ServerSocket.csproj|d:\\pexa\\pexa\\serversocket\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BD10396F-BAE5-492A-B393-22A9726629D5}|..\\ServerSocket\\ServerSocket.csproj|c:\\users\\kwebl\\source\\repos\\bombmasterfn\\serversocket\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,7 +24,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,11 +32,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -40,44 +44,74 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs",
+              "RelativeDocumentMoniker": "Lobby.cs",
+              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs",
+              "RelativeToolTip": "Lobby.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAawFMAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T07:15:40.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Server.cs",
-              "DocumentMoniker": "D:\\Pexa\\Pexa\\ServerSocket\\Server.cs",
+              "DocumentMoniker": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\ServerSocket\\Server.cs",
               "RelativeDocumentMoniker": "..\\ServerSocket\\Server.cs",
-              "ToolTip": "D:\\Pexa\\Pexa\\ServerSocket\\Server.cs",
+              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\ServerSocket\\Server.cs",
               "RelativeToolTip": "..\\ServerSocket\\Server.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAAAJYFAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGEBAAAAAAAAAAAQwIYBAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T04:29:08.271Z",
+              "WhenOpened": "2024-12-25T06:43:15.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SocketClient.cs",
-              "DocumentMoniker": "D:\\Pexa\\Pexa\\SuperTank\\SocketClient.cs",
-              "RelativeDocumentMoniker": "SocketClient.cs",
-              "ToolTip": "D:\\Pexa\\Pexa\\SuperTank\\SocketClient.cs",
-              "RelativeToolTip": "SocketClient.cs",
-              "ViewState": "AgIAANIEAAAAAAAAAAA2wN8EAAA0AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Server.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\ServerSocket\\Server.cs",
+              "RelativeDocumentMoniker": "..\\ServerSocket\\Server.cs",
+              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\ServerSocket\\Server.cs [Design]",
+              "RelativeToolTip": "..\\ServerSocket\\Server.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T06:59:31.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T05:29:31.858Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Server.cs [Design]",
-              "DocumentMoniker": "D:\\Pexa\\Pexa\\ServerSocket\\Server.cs",
-              "RelativeDocumentMoniker": "..\\ServerSocket\\Server.cs",
-              "ToolTip": "D:\\Pexa\\Pexa\\ServerSocket\\Server.cs [Design]",
-              "RelativeToolTip": "..\\ServerSocket\\Server.cs [Design]",
+              "Title": "SocketClient.cs",
+              "DocumentMoniker": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\SocketClient.cs",
+              "RelativeDocumentMoniker": "SocketClient.cs",
+              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\SocketClient.cs",
+              "RelativeToolTip": "SocketClient.cs",
+              "ViewState": "AgIAAM8EAAAAAAAAAAAkwNkEAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T14:13:44.647Z"
+              "WhenOpened": "2024-12-24T06:59:31.01Z",
+              "EditorCaption": ""
             }
           ]
         }

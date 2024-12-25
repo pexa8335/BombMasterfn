@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
+            ShowingInfo = new RichTextBox();
             SuspendLayout();
             // 
-            // richTextBox1
+            // ShowingInfo
             // 
-            richTextBox1.Location = new Point(1, 2);
-            richTextBox1.Margin = new Padding(2, 2, 2, 2);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(796, 445);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
-            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            ShowingInfo.Location = new Point(1, 1);
+            ShowingInfo.Margin = new Padding(1);
+            ShowingInfo.Name = "ShowingInfo";
+            ShowingInfo.Size = new Size(558, 443);
+            ShowingInfo.TabIndex = 0;
+            ShowingInfo.Text = "";
+            ShowingInfo.TextChanged += richTextBox1_TextChanged;
             // 
             // Server
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(richTextBox1);
+            ClientSize = new Size(560, 443);
+            Controls.Add(ShowingInfo);
+            Margin = new Padding(2);
             Name = "Server";
             Text = "Form1";
             Load += Form1_Load;
@@ -55,6 +56,6 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox ShowingInfo;
     }
 }

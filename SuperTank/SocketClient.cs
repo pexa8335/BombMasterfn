@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Net;
+using SuperTank;
 
 namespace SuperTank
 {
@@ -236,6 +237,7 @@ namespace SuperTank
                 }
             }
         }
+
         //Cập nhập danh sách các người khác trong cùng 1 lobby
         private static void UpdateLobby(string[] payload)
         {
@@ -246,7 +248,7 @@ namespace SuperTank
                 int playerCount = Convert.ToInt32(payload[2]);
                 string[] playerList = payload[3].Split(',');
                 string[] readyPlayerList = payload[4].Split(',');
-                for (int i = 0; i < playerCount; i++)
+                for (int i = 1; i < playerCount; i++)
                 {
                     if (!lobby.PlayersName.Contains(playerList[i]))
                     {
@@ -259,6 +261,7 @@ namespace SuperTank
                     }
                     else
                     {
+                        //Lỗi 
                         lobby.Players[i].IsReady = bool.Parse(readyPlayerList[i]);
                     }
                 }
@@ -1218,18 +1221,18 @@ namespace SuperTank
             private Bitmap bmpShield;
 
 
-            public PlayerTank()
-            {
-                this.Name = "Player";
-                this.moveSpeed = 10;
-                this.tankBulletSpeed = 20;
-                this.energy = 100;
-                this.SetLocation();
-                this.DirectionTank = Direction.eUp;
-                this.SkinTank = Skin.eYellow;
-                bmpEffect = new Bitmap(Common.path + @"\Images\effect1.png");
-                bmpShield = new Bitmap(Common.path + @"\Images\shield.png");
-            }
+            //public PlayerTank()
+            //{
+            //    this.Name = "Player";
+            //    this.moveSpeed = 10;
+            //    this.tankBulletSpeed = 20;
+            //    this.energy = 100;
+            //    this.SetLocation();
+            //    this.DirectionTank = Direction.eUp;
+            //    this.SkinTank = Skin.eYellow;
+            //    //bmpEffect = new Bitmap(Common.path + @"\Images\effect1.png");
+            //    //bmpShield = new Bitmap(Common.path + @"\Images\shield.png");
+            //}
 
             // cập nhật vị trí xe tăng player
             public void SetLocation()
@@ -1238,19 +1241,6 @@ namespace SuperTank
                 this.RectX = i * Common.STEP;
                 this.RectY = j * Common.STEP;
             }
-
-            public class Lobby
-            {
-                public bool IsGameOver { get; set; } = false;
-                public bool IsStart { get; set; } = false;
-                public string RoomId { get; set; }
-                public PlayerTank Host { get; set; }
-                public string HostName { get; set; }
-                public List<PlayerTank> Players { get; set; } = new List<PlayerTank>();
-                public List<string> PlayersName { get; set; } = new List<string>();
-            }
-
-
             // hiển thị xe tăng player
             #region hiển thị
             public override void Show(Bitmap background)

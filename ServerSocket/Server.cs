@@ -30,7 +30,10 @@ namespace ServerSocket
         public Server()
         {
             InitializeComponent();
-            
+            StartServer();
+            Thread processingThread = new Thread(ProcessMessages);
+            processingThread.IsBackground = true;
+            processingThread.Start();
         }
         private void StartServer()
         {
@@ -365,9 +368,28 @@ namespace ServerSocket
 
         private void SendMessageToPlayer(PlayerTank player, string message)
         {
-            var stream = player.PlayerSocket.GetStream();
-            byte[] buffer = Encoding.UTF8.GetBytes(message);
-            stream.Write(buffer, 0, buffer.Length);
+            try
+            {
+                var stream = player.PlayerSocket.GetStream();
+                byte[] buffer = Encoding.UTF8.GetBytes(message);
+
+                // Kiểm tra xem socket còn kết nối không
+                if (player.PlayerSocket.Connected)
+                {
+                    stream.Write(buffer, 0, buffer.Length);
+                }
+            }
+            catch (IOException ex)
+            {
+                // Xử lý khi mất kết nối
+                Console.WriteLine("Mất kết nối với player: ");
+                // Có thể thêm code để xóa player khỏi danh sách connected players
+            }
+            catch (SocketException ex)
+            {
+                // Xử lý lỗi socket
+                Console.WriteLine("Lỗi kết nối socket với player: ");
+            }
         }
         private static string GenerateRoomId()
         {
@@ -417,7 +439,7 @@ namespace ServerSocket
 
         public void UpdateInfo(string message)
         {
-            /*if (ShowingInfo.InvokeRequired)
+            if (ShowingInfo.InvokeRequired)
             {
                 ShowingInfo.Invoke(new Action(() => UpdateInfo(message)));
             }
@@ -426,7 +448,7 @@ namespace ServerSocket
                 ShowingInfo.AppendText(message + Environment.NewLine);
                 ShowingInfo.SelectionStart = ShowingInfo.Text.Length;
                 ShowingInfo.ScrollToCaret();
-            }*/
+            }
         }
 
         /*private void BroadcastRanking(Lobby lobby)
