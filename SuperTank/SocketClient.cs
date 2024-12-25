@@ -425,6 +425,8 @@ namespace SuperTank
 
         
     }
+
+
     #region lớp đối tượng xử lí chung
     public class PlayerTank : Tank
     {

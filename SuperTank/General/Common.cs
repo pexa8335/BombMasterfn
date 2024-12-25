@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using SuperTank.Objects;
+using System.Windows.Forms;
 
 namespace SuperTank.General
 {
@@ -21,9 +22,10 @@ namespace SuperTank.General
         public const int STEP = 20;
         public const int tankSize = 40;
         #endregion
-        public static string path;
+        public static string path = Application.StartupPath + @"\Content";
 
         // load hình ảnh
+
         public static Bitmap LoadImage(string fileName)
         {
             return new Bitmap(Common.path + fileName);

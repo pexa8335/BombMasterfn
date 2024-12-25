@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperTank.General;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace SuperTank.WindowsForms
@@ -19,6 +20,7 @@ namespace SuperTank.WindowsForms
 
         public frmMenu()
         {
+            
             // load đường dẫn dùng chung
             Common.path = Application.StartupPath + @"\Content";
             // thiết lập âm thanh
