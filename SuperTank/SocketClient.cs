@@ -530,6 +530,7 @@ namespace SuperTank
             public string HostName { get; set; }
             public List<PlayerTank> Players { get; set; } = new List<PlayerTank>();
             public List<string> PlayersName { get; set; } = new List<string>();
+
         }
         public class BaseObject
         {
