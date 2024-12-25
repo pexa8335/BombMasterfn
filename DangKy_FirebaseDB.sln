@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinIn_Up", "DangKy_Firebase
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperTank", "SuperTank\SuperTank.csproj", "{49F5BC8B-5D4B-4913-BD9B-C39295778F89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSocket", "ServerSocket\ServerSocket.csproj", "{85CD2719-5683-4238-855C-15F5994941C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{49F5BC8B-5D4B-4913-BD9B-C39295778F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F5BC8B-5D4B-4913-BD9B-C39295778F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49F5BC8B-5D4B-4913-BD9B-C39295778F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85CD2719-5683-4238-855C-15F5994941C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85CD2719-5683-4238-855C-15F5994941C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85CD2719-5683-4238-855C-15F5994941C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85CD2719-5683-4238-855C-15F5994941C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

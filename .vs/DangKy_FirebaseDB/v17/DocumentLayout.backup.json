@@ -1,52 +1,76 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\",
+  "WorkspaceRootPath": "C:\\Users\\THANG\\source\\repos\\EPL3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\pexa\\source\\repos\\bombmasterfn\\supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\supertank\\socketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\socketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\supertank\\objects\\wallmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\newroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|c:\\users\\thang\\source\\repos\\epl3\\supertank\\objects\\wallmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49F5BC8B-5D4B-4913-BD9B-C39295778F89}|SuperTank\\SuperTank.csproj|solutionrelative:supertank\\objects\\wallmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 103,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "DockedWidth": 53,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -58,82 +82,113 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WallManagement.cs",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Objects\\WallManagement.cs",
+              "RelativeDocumentMoniker": "SuperTank\\Objects\\WallManagement.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Objects\\WallManagement.cs",
+              "RelativeToolTip": "SuperTank\\Objects\\WallManagement.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswDYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T14:24:02.121Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 246,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChatRoom.cs",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\ChatRoom.cs",
+              "RelativeDocumentMoniker": "SuperTank\\ChatRoom.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\ChatRoom.cs",
+              "RelativeToolTip": "SuperTank\\ChatRoom.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAMwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T17:16:31.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatRoom.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\ChatRoom.cs",
+              "RelativeDocumentMoniker": "SuperTank\\ChatRoom.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\ChatRoom.cs [Design]",
+              "RelativeToolTip": "SuperTank\\ChatRoom.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T17:16:23.328Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Lobby.cs",
+              "RelativeDocumentMoniker": "SuperTank\\Lobby.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Lobby.cs",
+              "RelativeToolTip": "SuperTank\\Lobby.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAIAwwPsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T17:15:11.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Lobby.cs",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs",
-              "RelativeDocumentMoniker": "SuperTank\\Lobby.cs",
-              "ToolTip": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs",
-              "RelativeToolTip": "SuperTank\\Lobby.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAADwv1MAAAASAAAAAAAAAA==",
+              "Title": "newRoom.cs",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\newRoom.cs",
+              "RelativeDocumentMoniker": "SuperTank\\newRoom.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\newRoom.cs",
+              "RelativeToolTip": "SuperTank\\newRoom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T06:59:56.074Z"
+              "WhenOpened": "2024-12-25T17:10:32.059Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Lobby.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Lobby.cs",
               "RelativeDocumentMoniker": "SuperTank\\Lobby.cs",
-              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\Lobby.cs [Design]",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\Lobby.cs [Design]",
+              "RelativeToolTip": "SuperTank\\Lobby.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T07:03:04.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SocketClient.cs",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\SocketClient.cs",
-              "RelativeDocumentMoniker": "SuperTank\\SocketClient.cs",
-              "ToolTip": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\SocketClient.cs",
-              "RelativeToolTip": "SuperTank\\SocketClient.cs",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAqwAcBAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T06:36:17.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "newRoom.cs",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\newRoom.cs",
-              "RelativeDocumentMoniker": "SuperTank\\newRoom.cs",
-              "ToolTip": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\newRoom.cs",
-              "RelativeToolTip": "SuperTank\\newRoom.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwFYAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T06:27:56.63Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "newRoom.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\newRoom.cs",
-              "RelativeDocumentMoniker": "SuperTank\\newRoom.cs",
-              "ToolTip": "C:\\Users\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\newRoom.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\kwebl\\source\\repos\\BombMasterfn\\SuperTank\\newRoom.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T06:27:54.892Z"
+              "WhenOpened": "2024-12-25T17:10:25.517Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "WallManagement.cs",
-              "DocumentMoniker": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\Objects\\WallManagement.cs",
-              "RelativeDocumentMoniker": "SuperTank\\Objects\\WallManagement.cs",
-              "ToolTip": "C:\\Users\\Pexa\\source\\repos\\BombMasterfn\\SuperTank\\Objects\\WallManagement.cs",
-              "RelativeToolTip": "SuperTank\\Objects\\WallManagement.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAwwDYAAAAmAAAAAAAAAA==",
+              "Title": "newRoom.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\newRoom.cs",
+              "RelativeDocumentMoniker": "SuperTank\\newRoom.cs",
+              "ToolTip": "C:\\Users\\THANG\\source\\repos\\EPL3\\SuperTank\\newRoom.cs [Design]",
+              "RelativeToolTip": "SuperTank\\newRoom.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T14:24:02.121Z"
+              "WhenOpened": "2024-12-25T17:10:24.557Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

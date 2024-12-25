@@ -17,6 +17,9 @@ namespace SuperTank
     public partial class Lobby : Form
     {
         private CancellationTokenSource _cts;
+        private bool IsHost; // Add this line to declare the IsHost variable
+
+        private ChatRoom _chatRoom;
 
         public Lobby()
         {
@@ -26,6 +29,25 @@ namespace SuperTank
             namePlayer3.AutoEllipsis = true;
             namePlayer4.AutoEllipsis = true;
             this.Load += Lobby_Load;
+
+            // Display HostName and set IsHost
+            if (!string.IsNullOrEmpty(HostName))
+            {
+                if (SocketClient.localPlayer != null && HostName == SocketClient.localPlayer.Name)
+                {
+                    IsHost = true;
+                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + " (Bạn là chủ phòng)";
+                }
+                else
+                {
+                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + $" (Chủ phòng: {HostName})";
+                }
+            }
+
+            // Start ChatRoom form in background
+            _chatRoom = new ChatRoom();
+            _chatRoom.Show();
+            _chatRoom.Hide();
         }
 
         private async void Lobby_Load(object sender, EventArgs e)
@@ -33,7 +55,14 @@ namespace SuperTank
             _cts = new CancellationTokenSource();
             await RunContinuouslyAsync(_cts.Token);
         }
-
+        private void Lobby_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _cts?.Cancel();
+            SocketClient.Disconnect();
+            SocketClient.ClearLobby();
+            //Login login = new Login();
+            //login.Show();
+        }
         private async Task RunContinuouslyAsync(CancellationToken token)
         {
             SocketClient.SendData($"SEND_LOBBY;{SocketClient.joinedRoom}");
@@ -214,6 +243,10 @@ namespace SuperTank
             {
                 MessageBox.Show("Các người chơi khác vẫn chưa sẵn sàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        private void btn_Chat_Click(object sender, EventArgs e)
+        {
+            _chatRoom.Show();
         }
     }
 }
