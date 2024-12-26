@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Pexa\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Pexa\\.nuget\\packages",
+      "C:\\Users\\THANG\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\THANG\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

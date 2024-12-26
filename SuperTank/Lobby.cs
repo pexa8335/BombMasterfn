@@ -46,6 +46,7 @@ namespace SuperTank
 
             // Start ChatRoom form in background
             _chatRoom = new ChatRoom();
+            _chatRoom.FormClosing += ChatRoom_FormClosing;
             _chatRoom.Show();
             _chatRoom.Hide();
         }
@@ -246,7 +247,17 @@ namespace SuperTank
         }
         private void btn_Chat_Click(object sender, EventArgs e)
         {
+            if (_chatRoom == null || _chatRoom.IsDisposed)
+            {
+                _chatRoom = new ChatRoom();
+                _chatRoom.FormClosing += ChatRoom_FormClosing;
+            }
             _chatRoom.Show();
+        }
+        private void ChatRoom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _chatRoom.Hide();
+            //e.Cancel = true;
         }
     }
 }

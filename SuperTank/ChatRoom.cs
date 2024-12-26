@@ -15,6 +15,7 @@ namespace SuperTank
         public ChatRoom()
         {
             InitializeComponent();
+            SocketClient.OnReceiveMessage += UpdateMessage;
         }
         private void UpdateMessage(string message)
         {
