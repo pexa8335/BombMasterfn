@@ -54,6 +54,7 @@ namespace SuperTank
         }
         private async Task RunContinuouslyAsync(CancellationToken token)
         {
+            // Gửi SEND_LOBBY lần đầu tiên
             SocketClient.SendData($"SEND_LOBBY;{SocketClient.joinedRoom}");
             await Task.Delay(100, token);
 
@@ -63,27 +64,19 @@ namespace SuperTank
 
                 if (SocketClient.isStartGame)
                 {
-                    // Synchronize player list from `joinedLobby` to `SocketClient.players` once game starts
-                    if (SocketClient.players.Count == 0)
-                    {
-                        foreach (var lobbyPlayer in SocketClient.joinedLobby.Players)
-                        {
-                            SocketClient.players.Add(new SuperTank.Objects.PlayerTank
-                            {
-                                Name = lobbyPlayer.Name,
-                                Position = new PointF(0, 0) // Set initial spawn point or position
-                            });
-                        }
-                        Debug.WriteLine("All players added to SocketClient.players for MainGame start.");
-                    }
-
-                    // Cancel lobby task and start game -> show form game
+                    // ... (code xử lý khi game start)
                     _cts.Cancel();
                     frmGameMulti multi = new frmGameMulti();
                     this.Hide();
                     multi.Show();
+                    break; // Thêm break để thoát khỏi vòng lặp khi game start
                 }
-
+                else
+                {
+                    // Chỉ gửi SEND_LOBBY nếu game chưa bắt đầu
+                    if (!SocketClient.isStartGame) //Thêm điều kiện kiểm tra này
+                        SocketClient.SendData($"SEND_LOBBY;{SocketClient.joinedRoom}");
+                }
                 try
                 {
                     await Task.Delay(500, token);
@@ -101,7 +94,7 @@ namespace SuperTank
             {
                 lb_Total.Text = "Total: " + SocketClient.joinedLobby.PlayersName.Count.ToString();
                 lb_roomID.Text = "Room ID: " + SocketClient.joinedLobby.RoomId;
-                if (SocketClient.joinedLobby != null && SocketClient.joinedLobby.Host != null && 
+                if (SocketClient.joinedLobby != null && SocketClient.joinedLobby.Host != null &&
                     SocketClient.localPlayer != null && SocketClient.localPlayer.Name == SocketClient.joinedLobby.Host.Name)
                 {
                     btn_Start.Enabled = true;
@@ -224,7 +217,7 @@ namespace SuperTank
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            if (SocketClient.CheckIsReadyForAll() )
+            if (SocketClient.CheckIsReadyForAll())
             {
                 SocketClient.SendData("START");
             }

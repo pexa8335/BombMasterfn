@@ -191,3 +191,4 @@ C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.csproj.CoreCompil
 C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.exe
 C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.pdb
 C:\Users\Pexa\source\repos\BombMasterfn\SuperTank\obj\Debug\SuperTank.ChatRoom.resources
+C:\Users\kwebl\Source\Repos\BombMasterfn\SuperTank\obj\Debug\SuperTank.ChatRoom.resources

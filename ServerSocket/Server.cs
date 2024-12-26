@@ -116,6 +116,7 @@ namespace ServerSocket
         private void AnalyzingMessage(string message, PlayerTank player)
         {
             string[] arrPayload = message.Split(';');
+            UpdateInfo($"Received message: {message} from {player.PlayerName}"); // Log tin nhắn nhận được
             switch (arrPayload[0])
             {
                 case "CONNECT":
@@ -140,6 +141,7 @@ namespace ServerSocket
                     break;
                 case "SEND_LOBBY":
                     SendLobbyInfoToAll(player, arrPayload[1]);
+                    UpdateInfo($"Sending LOBBY_INFO for room {arrPayload[1]} to all connected clients.");
                     break;
                 case "READY":
                     var lobby = FindLobbyByPlayer(player);
@@ -156,12 +158,15 @@ namespace ServerSocket
                     break;
                 case "START":
                     StartGameForLobby(player);
+                    var lobbyy = FindLobbyByPlayer(player);
+                    if (lobbyy != null)
+                        UpdateInfo($"Game start signal received, lobby IsStart is: {lobbyy.IsStart} for lobby hosted by {lobbyy.Host.PlayerName}");
                     break;
                 case "STATS":
                     int killCount = int.Parse(arrPayload[1]);
                     int scoreGained = int.Parse(arrPayload[2]);
-/*                    player.KillCount += killCount;
-                    player.Score += scoreGained;*/
+                    /*                    player.KillCount += killCount;
+                                        player.Score += scoreGained;*/
                     UpdatePlayerStats(player);
                     break;
                 case "GAMEOVER":
@@ -193,28 +198,12 @@ namespace ServerSocket
                     string direction = arrPayload[2];
                     int x = int.Parse(arrPayload[3]);
                     int y = int.Parse(arrPayload[4]);
-                    string gunName1 = arrPayload[5];
-                    UpdatePlayerPosition(player, direction, x, y, gunName1);
+                    
+                    UpdatePlayerPosition(player, direction, x, y);
                     break;
-                case "UPDATE_GUN":
-                    string playerName1 = arrPayload[1];
-                    string gunName = arrPayload[2];
-                    string gunUpdateMessage = $"UPDATE_GUN;{playerName1};{gunName}";
-                    BroadcastMessage(gunUpdateMessage, player);
-                    break;
-                case "PLAYER_SHOOT":
-                    string shooterName = arrPayload[1];
-                    string shootDirection = arrPayload[2];
-                    string gunName2 = arrPayload[3];
-                    string shootMessage = $"PLAYER_SHOOT;{shooterName};{shootDirection};{gunName2}";
-                    BroadcastMessage(shootMessage, player);
-                    break;
-                case "UPDATE_WALL_HEALTH": //Not used
-                    double health = double.Parse(arrPayload[1]);
-                    //UpdateWallHealth(health);
-                    break;
+                
 
-               
+
                 default:
                     UpdateInfo($"Unknown command received: {arrPayload[0]} from {player.PlayerName}");
                     break;
@@ -296,6 +285,7 @@ namespace ServerSocket
                 foreach (var p in lobby.Players)
                 {
                     SendMessageToPlayer(p, startMessage);
+                    break;
                 }
                 UpdateInfo("Game started for lobby hosted by " + lobby.Host.PlayerName);
             }
@@ -336,7 +326,7 @@ namespace ServerSocket
 
         private void UpdatePlayerStats(PlayerTank player)
         {
-           string updateMessage = $"UPDATE_STATS;{player.PlayerName};";
+            string updateMessage = $"UPDATE_STATS;{player.PlayerName};";
             player.IsGameOver = true;
             Lobby lobby = FindLobbyByPlayer(player);
             if (lobby != null)
@@ -489,7 +479,7 @@ namespace ServerSocket
             }
         }
 
-        private void UpdatePlayerPosition(PlayerTank player, string direction, int x, int y, string gunName1)
+        private void UpdatePlayerPosition(PlayerTank player, string direction, int x, int y)
         {
             if (player == null || player.PlayerSocket == null) return;
 
@@ -502,7 +492,7 @@ namespace ServerSocket
             player.LastPositionUpdate = DateTime.Now;
             player.CurrentGun = gunName1;
 */
-            string positionMessage = $"UPDATE_POSITION;{player.PlayerName};{direction};{x};{y};{gunName1}";
+            string positionMessage = $"UPDATE_POSITION;{player.PlayerName};{direction};{x};{y}";
             var lobby = FindLobbyByPlayer(player);
 
             if (lobby != null)
@@ -533,7 +523,7 @@ namespace ServerSocket
 
         }
 
-        
+
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 

@@ -23,7 +23,7 @@ namespace SuperTank
         private static bool stopThread = false;
         public static List<SuperTank.Objects.PlayerTank> players = new List<SuperTank.Objects.PlayerTank>();
         public static SuperTank.Objects.PlayerTank localPlayer;
-   
+
 
         public static bool isStartGame = false;
 
@@ -119,15 +119,19 @@ namespace SuperTank
 
         private static void ProcessReceivedData(string data)
         {
+            Debug.WriteLine($"Received data: {data}");
             string[] payload = data.Split(';');
             string messageType = payload[0];
+
             switch (messageType)
             {
                 case "ROOMLIST":
                     AddRoomList(payload);
+                    Debug.WriteLine("Received ROOMLIST.");
                     break;
                 case "JOINED":
                     joinedRoom = payload[1];
+                    Debug.WriteLine($"Joined room: {joinedRoom}");
                     var lobby = lobbies.SingleOrDefault(r => r.RoomId == payload[1]);
                     if (lobby != null)
                     {
@@ -136,57 +140,53 @@ namespace SuperTank
                     break;
                 case "LOBBY_INFO":
                     UpdateLobby(payload);
+                    Debug.WriteLine($"Received LOBBY_INFO for room: {payload[1]}");
                     break;
                 case "READY_INFO":
                     UpdateReadyInfo(payload);
+                    Debug.WriteLine($"Received READY_INFO for player: {payload[1]}");
                     break;
                 case "SEND_MESSAGE":
                     OnReceiveMessage?.Invoke(payload[1]);
+                    Debug.WriteLine($"Received message: {payload[1]}");
                     UpdateMessage(payload[1]);
                     break;
                 case "START":
                     UpdatePlayInfo(payload);
                     isStartGame = true;
+                    Debug.WriteLine("Game started. isStartGame set to true");
                     break;
                 case "UPDATE_STATS":
                     UpdateStats(payload);
+                    Debug.WriteLine("Updated Stats");
                     break;
                 case "GAMEOVER":
                     if (payload[1] == "True")
                         joinedLobby.IsGameOver = true;
+                    Debug.WriteLine("Game Over info Received");
                     break;
                 case "PLAYER_DISCONNECTED":
                     HandleDisconnect(payload[1]);
+                    Debug.WriteLine($"Player Disconnected: {payload[1]}");
                     break;
                 case "CLEAR_LOBBY":
                     ClearLobby();
+                    Debug.WriteLine($"Lobby cleared");
                     break;
                 case "ERROR_JOIN":
                     isJoinRoom = false;
+                    Debug.WriteLine($"Error joining room");
                     break;
                 case "ERROR_CREATE":
                     isCreateRoom = false;
+                    Debug.WriteLine($"Error creating room");
                     break;
-
                 case "UPDATE_POSITION":
                     HandlePlayerPosition(payload);
                     break;
-
-                //case "UPDATE_GUN":
-                //    HandleSwitchGuns(payload);
-                //    break;
-
-                //case "PLAYER_SHOOT":
-                //    HandleShootBullet(payload);
-                //    break;
-
-                case "UPDATE_WALL_HEALTH": //Not used
-                    //HandleWallHealth(payload);
+                default:
+                    Debug.WriteLine($"Received unknown command: {messageType}");
                     break;
-
-                    //case "MAKE_ZOMBIES":
-                    //    OnMakeZombies?.Invoke(payload);
-                    //    break;
             }
         }
 

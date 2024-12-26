@@ -54,7 +54,7 @@ namespace SuperTank
         private const int POSITION_UPDATE_INTERVAL_MS = 100; // Thời gian tối thiểu giữa các lần gửi (ms)
         public frmGameMulti()
         {
-            this.level = 5;
+            this.level = 7;
             this.Size = new Size(500, 640);
             InitializeComponent();
             // Đăng ký sự kiện
@@ -158,7 +158,7 @@ namespace SuperTank
             //timeItem = 50;
             //timeItemActive = 15;
 
-            tmrGameLoop.Start();
+            //tmrGameLoop.Start();
         }
 
         #region Vòng lặp game
@@ -228,47 +228,47 @@ namespace SuperTank
                 }
 
                 // chạy danh sách đạn của từng kẻ địch 
-                foreach (EnemyTank enemyTank in enemyTankManager.EnemyTanks)
-                {
-                    for (int h = 0; h < enemyTank.Bullets.Count; h++)
-                    {
-                        // nếu đạn xe tăng địch trúng tường 
-                        if (Common.IsCollision(enemyTank.Bullets[h].Rect, wallManager.Walls[i].Rect))
-                        {
-                            // viên đạn dừng di chuyển nếu nó trúng, không phải bụi cây(4)
-                            if (wallManager.Walls[i].WallNumber != 4 &&
-                                wallManager.Walls[i].WallNumber != 5)
-                            {
-                                // thêm vụ nổ vào danh sách
-                                explosionManager.CreateExplosion(ExplosionSize.eSmallExplosion, enemyTank.Bullets[h].Rect);
-                                // viên đạn xe tăng địch này bị hủy
-                                enemyTank.RemoveOneBullet(h);
-                            }
-                            // hủy viên gạch đi khi nó là gạch có thể phá hủy
-                            if (wallManager.Walls[i].WallNumber == 1)
-                            {
-                                //Console.WriteLine("Địch bắn trúng tường có thể phá.");
-                                wallManager.RemoveOneWall(i);
-                            }
-                            else
-                             // địch bắn trúng boss của player
-                             if (wallManager.Walls[i].WallNumber == 6)
-                            {
-                                //Console.WriteLine("địch bắn trúng boss player!");
-                                lblCastleBlood.Width -= 6;
-                                if (lblCastleBlood.Width == 0)
-                                {
-                                    // game over
-                                    inforStyle = InforStyle.eGameOver;
-                                    // lâu đài bị hỏng
-                                    bmpCastle = (Bitmap)Image.FromFile(Common.path + @"\Images\ruinedcastle.png");
-                                    // dừng timer show vật phẩm
+                //    foreach (EnemyTank enemyTank in enemyTankManager.EnemyTanks)
+                //    {
+                //        for (int h = 0; h < enemyTank.Bullets.Count; h++)
+                //        {
+                //            // nếu đạn xe tăng địch trúng tường 
+                //            if (Common.IsCollision(enemyTank.Bullets[h].Rect, wallManager.Walls[i].Rect))
+                //            {
+                //                // viên đạn dừng di chuyển nếu nó trúng, không phải bụi cây(4)
+                //                if (wallManager.Walls[i].WallNumber != 4 &&
+                //                    wallManager.Walls[i].WallNumber != 5)
+                //                {
+                //                    // thêm vụ nổ vào danh sách
+                //                    explosionManager.CreateExplosion(ExplosionSize.eSmallExplosion, enemyTank.Bullets[h].Rect);
+                //                    // viên đạn xe tăng địch này bị hủy
+                //                    enemyTank.RemoveOneBullet(h);
+                //                }
+                //                // hủy viên gạch đi khi nó là gạch có thể phá hủy
+                //                if (wallManager.Walls[i].WallNumber == 1)
+                //                {
+                //                    //Console.WriteLine("Địch bắn trúng tường có thể phá.");
+                //                    wallManager.RemoveOneWall(i);
+                //                }
+                //                else
+                //                 // địch bắn trúng boss của player
+                //                 if (wallManager.Walls[i].WallNumber == 6)
+                //                {
+                //                    //Console.WriteLine("địch bắn trúng boss player!");
+                //                    lblCastleBlood.Width -= 6;
+                //                    if (lblCastleBlood.Width == 0)
+                //                    {
+                //                        // game over
+                //                        inforStyle = InforStyle.eGameOver;
+                //                        // lâu đài bị hỏng
+                //                        bmpCastle = (Bitmap)Image.FromFile(Common.path + @"\Images\ruinedcastle.png");
+                //                        // dừng timer show vật phẩm
 
-                                }
-                            }
-                        }
-                    }
-                }
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
             }
             #endregion
 
@@ -312,21 +312,21 @@ namespace SuperTank
 
                 }
 
-                // chạy danh sách đạn địch kiểm tra va chạm với ds đạn xe tăng player
-                for (int j = 0; j < enemyTankManager.EnemyTanks[i].Bullets.Count; j++)
-                {
-                    // chạy danh sách đạn xe tăng player
-                    for (int h = 0; h < playerTank.Bullets.Count; h++)
-                    {
-                        // đạn của xe tăng địch va chạm đạn của xe tăng player
-                        if (Common.IsCollision(enemyTankManager.EnemyTanks[i].Bullets[j].Rect, playerTank.Bullets[h].Rect))
-                        {
-                            //Console.WriteLine("hai viên đạn trúng nhau");
-                            enemyTankManager.EnemyTanks[i].RemoveOneBullet(j);
-                            playerTank.RemoveOneBullet(h);
-                        }
-                    }
-                }
+                //// chạy danh sách đạn địch kiểm tra va chạm với ds đạn xe tăng player
+                //for (int j = 0; j < enemyTankManager.EnemyTanks[i].Bullets.Count; j++)
+                //{
+                //    // chạy danh sách đạn xe tăng player
+                //    for (int h = 0; h < playerTank.Bullets.Count; h++)
+                //    {
+                //        // đạn của xe tăng địch va chạm đạn của xe tăng player
+                //        if (Common.IsCollision(enemyTankManager.EnemyTanks[i].Bullets[j].Rect, playerTank.Bullets[h].Rect))
+                //        {
+                //            //Console.WriteLine("hai viên đạn trúng nhau");
+                //            enemyTankManager.EnemyTanks[i].RemoveOneBullet(j);
+                //            playerTank.RemoveOneBullet(h);
+                //        }
+                //    }
+                //}
 
                 //chạy danh sách đạn xe tăng player
                 for (int k = 0; k < playerTank.Bullets.Count; k++)
@@ -535,7 +535,7 @@ namespace SuperTank
         // game over
         private void GameOver(int scores, int killed)
         {
-            // dừng các timer
+            //// dừng các timer
             tmrGameLoop.Stop();
 
             // hiển thị điểm và số lượng địch đã tiêu diệt
@@ -554,7 +554,7 @@ namespace SuperTank
         // game next
         private void GameNext(int scores, int killed)
         {
-            // dừng các timer
+            //// dừng các timer
             tmrGameLoop.Stop();
 
             // hiển thị level hiện tại lên panel thông tin
@@ -583,7 +583,7 @@ namespace SuperTank
         // game win
         private void GameWin(int scores, int killed)
         {
-            // dừng các timer
+            //// dừng các timer
             tmrGameLoop.Stop();
 
             // hiển thị panel GameWin

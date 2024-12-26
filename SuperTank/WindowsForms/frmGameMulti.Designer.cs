@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGameMulti));
-            this.tmrGameLoop = new System.Windows.Forms.Timer(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblHpTankPlayer = new System.Windows.Forms.Label();
@@ -103,6 +102,7 @@
             this.picPlus = new System.Windows.Forms.PictureBox();
             this.picMinus = new System.Windows.Forms.PictureBox();
             this.picMultiply = new System.Windows.Forms.PictureBox();
+            this.tmrGameLoop = new System.Windows.Forms.Timer(this.components);
             this.pnInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTank19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank18)).BeginInit();
@@ -143,12 +143,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMultiply)).BeginInit();
             this.SuspendLayout();
             // 
-            // tmrGameLoop
-            // 
-            this.tmrGameLoop.Enabled = true;
-            this.tmrGameLoop.Interval = 5;
-            this.tmrGameLoop.Tick += new System.EventHandler(this.tmrGameLoop_Tick);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -156,7 +150,7 @@
             this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.Location = new System.Drawing.Point(33, 55);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 26);
+            this.label9.Size = new System.Drawing.Size(52, 16);
             this.label9.TabIndex = 14;
             this.label9.Text = "HEALTH";
             // 
@@ -650,7 +644,7 @@
             this.label15.ForeColor = System.Drawing.Color.Red;
             this.label15.Location = new System.Drawing.Point(346, 605);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(244, 44);
+            this.label15.Size = new System.Drawing.Size(140, 26);
             this.label15.TabIndex = 5;
             this.label15.Text = "Total Enemy:";
             // 
@@ -661,7 +655,7 @@
             this.label16.ForeColor = System.Drawing.Color.Red;
             this.label16.Location = new System.Drawing.Point(346, 536);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(148, 44);
+            this.label16.Size = new System.Drawing.Size(86, 26);
             this.label16.TabIndex = 4;
             this.label16.Text = "Scores:";
             // 
@@ -784,7 +778,7 @@
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(346, 610);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(244, 44);
+            this.label5.Size = new System.Drawing.Size(140, 26);
             this.label5.TabIndex = 5;
             this.label5.Text = "Total Enemy:";
             // 
@@ -796,7 +790,7 @@
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(346, 548);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 44);
+            this.label4.Size = new System.Drawing.Size(86, 26);
             this.label4.TabIndex = 4;
             this.label4.Text = "Scores:";
             // 
@@ -916,7 +910,7 @@
             this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(346, 612);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(244, 44);
+            this.label11.Size = new System.Drawing.Size(140, 26);
             this.label11.TabIndex = 5;
             this.label11.Text = "Total Enemy:";
             // 
@@ -927,7 +921,7 @@
             this.label12.ForeColor = System.Drawing.Color.Red;
             this.label12.Location = new System.Drawing.Point(346, 546);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 44);
+            this.label12.Size = new System.Drawing.Size(86, 26);
             this.label12.TabIndex = 4;
             this.label12.Text = "Scores:";
             // 
@@ -1037,6 +1031,12 @@
             this.picMultiply.MouseEnter += new System.EventHandler(this.picMultiply_MouseEnter);
             this.picMultiply.MouseLeave += new System.EventHandler(this.picMultiply_MouseLeave);
             // 
+            // tmrGameLoop
+            // 
+            this.tmrGameLoop.Enabled = true;
+            this.tmrGameLoop.Interval = 5;
+            this.tmrGameLoop.Tick += new System.EventHandler(this.tmrGameLoop_Tick);
+            // 
             // frmGameMulti
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1102,7 +1102,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer tmrGameLoop;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblHpTankPlayer;
@@ -1175,6 +1174,7 @@
         private System.Windows.Forms.Label lblInforExit;
         private System.Windows.Forms.Label lblInforMenu;
         private System.Windows.Forms.Label lblInforPandP;
+        private System.Windows.Forms.Timer tmrGameLoop;
     }
 }
 

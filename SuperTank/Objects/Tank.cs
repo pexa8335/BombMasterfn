@@ -163,7 +163,7 @@ namespace SuperTank.Objects
                         bullet.RectWidth = 12;
                         bullet.RectHeight = 12;
                         // năng lượng của đạn rocket mặc định là 40
-                        bullet.Power = 30;
+                        bullet.Power = 1;
                         break;
                 }
                 // hướng của xe tăng
