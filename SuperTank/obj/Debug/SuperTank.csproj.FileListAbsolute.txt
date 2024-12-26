@@ -190,3 +190,4 @@ C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.csproj.GenerateRe
 C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.csproj.CoreCompileInputs.cache
 C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.exe
 C:\Users\THANG\source\repos\EPL3\SuperTank\obj\Debug\SuperTank.pdb
+C:\Users\Pexa\source\repos\BombMasterfn\SuperTank\obj\Debug\SuperTank.ChatRoom.resources

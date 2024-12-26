@@ -30,19 +30,7 @@ namespace SuperTank
             namePlayer4.AutoEllipsis = true;
             this.Load += Lobby_Load;
 
-            // Display HostName and set IsHost
-            if (!string.IsNullOrEmpty(HostName))
-            {
-                if (SocketClient.localPlayer != null && HostName == SocketClient.localPlayer.Name)
-                {
-                    IsHost = true;
-                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + " (Bạn là chủ phòng)";
-                }
-                else
-                {
-                    lb_roomID.Text = "MÃ PHÒNG: " + RoomId + $" (Chủ phòng: {HostName})";
-                }
-            }
+
 
             // Start ChatRoom form in background
             _chatRoom = new ChatRoom();

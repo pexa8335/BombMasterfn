@@ -22,7 +22,7 @@ namespace SuperTank.General
         public const int STEP = 20;
         public const int tankSize = 40;
         #endregion
-        public static string path = Application.StartupPath + @"\Content";
+        public static string path;
 
         // load hình ảnh
 
