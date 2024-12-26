@@ -45,7 +45,6 @@
             this.ptb_player4 = new System.Windows.Forms.PictureBox();
             this.btn_Ready = new System.Windows.Forms.Button();
             this.btn_Start = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_chat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_player2)).BeginInit();
@@ -231,15 +230,6 @@
             this.btn_Start.Visible = false;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btn_chat
             // 
             this.btn_chat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,7 +248,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 558);
             this.Controls.Add(this.btn_chat);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Start);
             this.Controls.Add(this.btn_Ready);
             this.Controls.Add(this.ptb_player4);
@@ -308,7 +297,6 @@
         private System.Windows.Forms.PictureBox ptb_player4;
         private System.Windows.Forms.Button btn_Ready;
         private System.Windows.Forms.Button btn_Start;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_chat;
     }
 }

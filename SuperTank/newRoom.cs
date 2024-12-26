@@ -20,9 +20,6 @@ namespace SuperTank
             IPAddress ipServer = IPAddress.Loopback;
             IPEndPoint serverEP = new IPEndPoint(ipServer, 8989); // Sử dụng port 8989 như server đã chỉ định
             SocketClient.ConnectToServer(serverEP); // Gọi phương thức static mà không cần tạo đối tượng
-            string message = $"CONNECT;{tb_ingameName.Text}"; // Sử dụng ký tự phân tách là ';'
-            SocketClient.SendData(message); // Gọi phương thức static mà không cần tạo đối tượng
-
             SocketClient.localPlayer = new Objects.PlayerTank { };
         }
 
@@ -89,6 +86,8 @@ namespace SuperTank
                 MessageBox.Show("In-game name is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string message = $"CONNECT;{tb_ingameName.Text}"; // Sử dụng ký tự phân tách là ';'
+            SocketClient.SendData(message); // Gọi phương thức static mà không cần tạo đối tượng
             SocketClient.localPlayer.Name = tb_ingameName.Text;
             SocketClient.SendData($"CREATE_ROOM;{roomID.Text}");
 
@@ -116,6 +115,8 @@ namespace SuperTank
                 MessageBox.Show("In-game name is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string message = $"CONNECT;{tb_ingameName.Text}"; // Sử dụng ký tự phân tách là ';'
+            SocketClient.SendData(message); // Gọi phương thức static mà không cần tạo đối tượng
             SocketClient.localPlayer.Name = tb_ingameName.Text;
             SocketClient.SendData("SEND_ROOM_LIST");
 
